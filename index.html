@@ -10,10 +10,22 @@
     We are using Node.js <script>document.write(process.versions.node)</script>,
     Chromium <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
+    <button id="btn-test">click me</button>
   </body>
 
   <script>
-    // You can also require other files to run in this process
     require('./renderer.js')
+    //npmでjqueryをインストールしているのでこれでOK
+    var $ = require('jquery');
+
+    //プロセス間通信を使ってMainプロセスのMainモジュールにアクセス
+    var main = require('electron').remote.require('./main.js');
+
+    //ボタンがクリックされたら
+    $('#btn-test').click(function(){
+      //MainプロセスのMainモジュールのhello関数を呼び出す
+      main.hello();
+    });
+
   </script>
 </html>
