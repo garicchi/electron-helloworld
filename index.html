@@ -12,20 +12,8 @@
     and Electron <script>document.write(process.versions.electron)</script>.
     <button id="btn-test">click me</button>
   </body>
-
   <script>
-    require('./renderer.js')
-    //npmでjqueryをインストールしているのでこれでOK
-    var $ = require('jquery');
-
-    //プロセス間通信を使ってMainプロセスのMainモジュールにアクセス
-    var main = require('electron').remote.require('./main.js');
-
-    //ボタンがクリックされたら
-    $('#btn-test').click(function(){
-      //MainプロセスのMainモジュールのhello関数を呼び出す
-      main.hello();
-    });
+    require("./js/index")
 
   </script>
 </html>

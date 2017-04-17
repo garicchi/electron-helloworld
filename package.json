@@ -2,8 +2,9 @@
   "name": "electron-quick-start",
   "version": "1.0.0",
   "description": "A minimal Electron application",
-  "main": "main.js",
+  "main": "js/main.js",
   "scripts": {
+    "build": "tsc ts/*.ts --outDir js",
     "start": "electron ."
   },
   "repository": "https://github.com/electron/electron-quick-start",
@@ -16,10 +17,8 @@
   ],
   "author": "GitHub",
   "license": "CC0-1.0",
-  "devDependencies": {
-    "electron": "^1.4.1"
-  },
   "dependencies": {
+    "electron-prebuilt": "^1.4.13",
     "jquery": "^3.1.1",
     "remote": "^0.2.6"
   }
